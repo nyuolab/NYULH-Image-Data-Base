@@ -3,6 +3,11 @@ import os
 import time
 from tqdm import tqdm
 
+# TODO: CONFIGURATION
+source_directory = 'YOUR_PATH'
+output_tar_file = 'YOUR_PATH'
+
+
 def create_dicom_tar(source_dir, output_dir):
 
     for root, dirs, files in os.walk(source_dir):
@@ -28,10 +33,6 @@ def create_dicom_tar(source_dir, output_dir):
         break
     print(total_tar, total_tar_compress)
 
-
-source_directory = '/gpfs/data/oermannlab/public_data/nih-chest-xrays/cxr14_nyu_mimic'
-
-output_tar_file = '/gpfs/data/oermannlab/public_data/nih-chest-xrays/tar'
 
 if os.path.isdir(source_directory):
     create_dicom_tar(source_directory, output_tar_file)

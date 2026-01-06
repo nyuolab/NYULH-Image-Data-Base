@@ -5,9 +5,9 @@ import numpy as np
 import time  # <--- Added this
 from tqdm import tqdm
 
-# CONFIGURATION
-dicom_dir = '/gpfs/data/oermannlab/public_data/nih-chest-xrays/cxr14_nyu_mimic'
-h5_filename = '/gpfs/data/oermannlab/public_data/nih-chest-xrays/hdf5/cxr14_nyu_mimic_blosc.hdf5'
+# TODO: CONFIGURATION
+dicom_dir = 'YOUR_PATH'
+h5_filename = 'YOUR_PATH'
 
 def save_hierarchical_pixels_timed(dicom_dir, h5_filename):
     files = [f for f in os.listdir(dicom_dir) if f.endswith('.dcm')]

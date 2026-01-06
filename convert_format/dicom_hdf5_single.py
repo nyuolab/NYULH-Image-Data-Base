@@ -8,7 +8,7 @@ import argparse
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="DDP training for NIH CXR DenseNet")
+    parser = argparse.ArgumentParser(description="Convert one single study to one single HDF5.")
 
     parser.add_argument("--compression"
                         , type=str
