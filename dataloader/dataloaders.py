@@ -101,7 +101,7 @@ class TarDicomDataset(Dataset):
         return x, torch.tensor([label_num]).squeeze()
     
 
-class HDF5DicomDataset(Dataset):
+class SingleHDF5DicomFileDataset(Dataset):
     """
     Each item is one .hdf5 file that contains **MULTIPLE** DICOM file.
 
@@ -181,7 +181,7 @@ class HDF5DicomDataset(Dataset):
         return x, torch.tensor([label_num]).squeeze()
     
 
-class HDF5DicomSingleDataset(Dataset):
+class HDF5DicomDataset(Dataset):
     """
     Each item is one .hdf5 file that contains **SINGLE** DICOM file.
 
