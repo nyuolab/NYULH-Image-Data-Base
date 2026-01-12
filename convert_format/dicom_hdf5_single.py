@@ -19,12 +19,15 @@ def parse_args():
                         , type=str
                         , default='image'
                         , help="how do you want to index your hdf5? patient or image? \
-                                by patient the file structure will be: \
+                                By **patient** the file structure will be: \
                                     --patient \
                                         |__img 1 \
                                         |__img 2 \
                                         |__img N \
-                                by image, each hdf5 file is a single radiology image.")
+                                i.e., This will return one single HDF5 with multiple DICOM studies compiled.\
+                                \
+                                By **image**, each hdf5 file is a single radiology image, \
+                                i.e., This will return one single HDF5 with one single DICOM study.")
  
 
     return parser.parse_args()
@@ -32,16 +35,17 @@ def parse_args():
 def save_hierarchical_pixels_timed():
     args = parse_args()
 
-
-    dicom_dir = '/gpfs/data/oermannlab/public_data/nih-chest-xrays/cxr14_nyu_mimic'
-
-    os.makedirs(f'/gpfs/data/oermannlab/public_data/nih-chest-xrays/hdf5_single/{args.index}/{args.compression}/'
+    #TODO: CONDFIGURATIONS
+    dicom_dir = 'YOUR_PATH'
+    os.makedirs(f'YOUR_TARGET_PATH{args.index}/{args.compression}/'
                             , exist_ok=True)
-    h5_dir =  f'/gpfs/data/oermannlab/public_data/nih-chest-xrays/hdf5_single/{args.index}/{args.compression}/'
     
+    h5_dir =  f'YOUR_TARGET_PATH{args.index}/{args.compression}/'
+    
+
+
     files = [f for f in os.listdir(dicom_dir) if f.endswith('.dcm')]
     total_files = len(files)
-    
     
     print(f"Starting conversion of {total_files} images, indexed by {args.index}, with compression method {args.compression}...")
     

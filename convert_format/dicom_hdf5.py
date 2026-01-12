@@ -10,6 +10,12 @@ dicom_dir = 'YOUR_PATH'
 h5_filename = 'YOUR_PATH'
 
 def save_hierarchical_pixels_timed(dicom_dir, h5_filename):
+    """
+    dicom_dir: Path to your folder with dicom files
+    h5_filename: Path to the target HDF5 file
+
+    Return: A single HDF5 with all studies without compression.
+    """
     files = [f for f in os.listdir(dicom_dir) if f.endswith('.dcm')]
     total_files = len(files)
     
